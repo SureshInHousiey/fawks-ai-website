@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Facebook, Twitter, Instagram, Linkedin, MapPin } from 'lucide-react'
+import { Twitter, Linkedin, MapPin } from 'lucide-react'
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
