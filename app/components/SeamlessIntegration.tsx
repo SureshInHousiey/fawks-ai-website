@@ -8,22 +8,20 @@ const integrations = [
     title: 'Choose Models',
     logos: [
       { src: '/images/integrations/anthropic.png', alt: 'Anthropic' },
+      { src: '/images/integrations/elevenlabs.png', alt: 'ElevenLabs' },
       { src: '/images/integrations/openai.webp', alt: 'OpenAI' },
-      { src: '/images/integrations/azure.png', alt: 'Azure' },
       { src: '/images/integrations/gpt4.png', alt: 'GPT-4' },
       { src: '/images/integrations/dalle.png', alt: 'DALL-E' },
-      { src: '/images/integrations/elevenlabs.png', alt: 'ElevenLabs' }
     ]
   },
   {
     title: 'Tools',
     logos: [
       { src: '/images/integrations/google-calendar.png', alt: 'Google Calendar' },
-      { src: '/images/integrations/chrome.webp', alt: 'Chrome' },
+      { src: '/images/integrations/make.png', alt: 'Make' },
       { src: '/images/integrations/gmail.webp', alt: 'Gmail' },
       { src: '/images/integrations/zapier.png', alt: 'Zapier' },
       { src: '/images/integrations/n8n.png', alt: 'n8n' },
-      { src: '/images/integrations/make.png', alt: 'Make' },
     ]
   },
   {
