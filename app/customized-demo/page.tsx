@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
 
-const companies = [{ name: "Zimyo", webhookUrl: "https://n8n.fawks.ai/webhook-test/zimyo-demo" }]
+const companies = [{ name: "Zimyo", webhookUrl: "https://n8n.fawks.ai/webhook/zimyo-demo" }]
 
 export default function CustomizedDemo() {
   const [formData, setFormData] = useState({
@@ -19,14 +19,21 @@ export default function CustomizedDemo() {
     company: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-
+  const [phoneValid, setPhoneValid] = useState(true)
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handlePhoneChange = (value: string, country: any) => {
-    setFormData((prev) => ({ ...prev, phone: `+${country.dialCode}${value.slice(country.dialCode.length)}` }))
+  const handlePhoneChange = (value: string, country: any, event: any, formattedValue: string) => {
+    // Validate phone number using `isValid`
+    const isValidPhone = value.length >= country.format.replace(/[^.]/g, "").length
+    setPhoneValid(isValidPhone)
+
+    setFormData((prev) => ({
+      ...prev,
+      phone: isValidPhone ? formattedValue.replace(/[\s-]/g, "") : "",
+    }))
   }
 
   const handleCompanyChange = (value: string) => {
@@ -36,14 +43,23 @@ export default function CustomizedDemo() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-
+    const urlPattern = /\.(com|in|net|org|io|co|us|uk|au|gov|edu|info)(\/|$)/i;
+    if (formData.website && !urlPattern.test(formData.website)) {
+      alert("Please enter a valid website URL.");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!phoneValid || !formData.phone) {
+      alert("Please enter a valid phone number.")
+      setIsSubmitting(false)
+      return
+    }
     const selectedCompany = companies.find((c) => c.name === formData.company)
     if (!selectedCompany) {
       alert("Please select a company")
       setIsSubmitting(false)
       return
     }
-
     try {
       const response = await fetch(selectedCompany.webhookUrl, {
         method: "POST",
@@ -123,7 +139,7 @@ export default function CustomizedDemo() {
           </div>
           <Input
             name="website"
-            type="url"
+            type="text"
             placeholder="Website Address (optional)"
             value={formData.website}
             onChange={handleInputChange}
