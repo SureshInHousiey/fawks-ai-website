@@ -7,7 +7,7 @@ import { Input } from "./ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
-
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 const industries = [
   { value: "real-estate", label: "Real Estate" },
   { value: "healthcare", label: "Healthcare" },
@@ -45,12 +45,26 @@ const Hero = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
-
+  const [phoneValid, setPhoneValid] = useState(true)
+  const validatePhoneNumber = (value: string, country: any) => {
+  
+      let rawPhoneNumber = value.replace(new RegExp(`^${country.dialCode}`), "");
+  
+      const parsedPhoneNumber = parsePhoneNumberFromString(rawPhoneNumber, country.iso2?.toUpperCase());
+      let isValid = parsedPhoneNumber ? parsedPhoneNumber.isValid(): false
+      setPhoneValid(isValid)
+      // 69918067280
+      return isValid;
+  };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setError(null)
-
+    if (!phoneValid || !formData.phone) {
+      alert("Please enter a valid phone number.")
+      setIsSubmitting(false)
+      return
+    }
     try {
       // Format the phone number with country code for submission
       const formattedData = {
@@ -70,7 +84,7 @@ const Hero = () => {
       }
 
       // const data = await response.json() //data not in use
-      alert("We will call you in 10 seconds!")
+      alert("We will call you in 1 minute!")
       setFormData({ name: "", email: "", phone: "", industry: "" })
     } catch (error) {
       console.error("Error initiating call:", error)
@@ -159,6 +173,7 @@ const Hero = () => {
                   country={"us"}
                   value={formData.phone}
                   onChange={(phone) => setFormData((prev) => ({ ...prev, phone: phone }))}
+                  isValid={(value, country) => validatePhoneNumber(value, country)}
                   inputProps={{
                     required: true,
                     className: 'w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md',

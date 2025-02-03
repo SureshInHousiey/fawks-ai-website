@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
-
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 const companies = [{ name: "Zimyo", webhookUrl: "https://n8n.fawks.ai/webhook/zimyo-demo" }]
 
 export default function CustomizedDemo() {
@@ -25,16 +25,15 @@ export default function CustomizedDemo() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handlePhoneChange = (value: string, country: any, event: any, formattedValue: string) => {
-    // Validate phone number using `isValid`
-    const isValidPhone = value.length >= country.format.replace(/[^.]/g, "").length
-    setPhoneValid(isValidPhone)
+  const validatePhoneNumber = (value: string, country: any) => {
 
-    setFormData((prev) => ({
-      ...prev,
-      phone: isValidPhone ? formattedValue.replace(/[\s-]/g, "") : "",
-    }))
-  }
+    let rawPhoneNumber = value.replace(new RegExp(`^${country.dialCode}`), "");
+
+    const parsedPhoneNumber = parsePhoneNumberFromString(rawPhoneNumber, country.iso2?.toUpperCase());
+    let isValid = parsedPhoneNumber ? parsedPhoneNumber.isValid(): false
+    setPhoneValid(isValid)
+    return isValid;
+  };
 
   const handleCompanyChange = (value: string) => {
     setFormData((prev) => ({ ...prev, company: value }))
@@ -61,10 +60,14 @@ export default function CustomizedDemo() {
       return
     }
     try {
+      const formattedData = {
+        ...formData,
+        phone: formData.phone.startsWith("+") ? formData.phone : `+${formData.phone}`,
+      }
       const response = await fetch(selectedCompany.webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formattedData),
       })
 
       if (!response.ok) {
@@ -107,7 +110,10 @@ export default function CustomizedDemo() {
             <PhoneInput
               country={"us"}
               value={formData.phone}
-              onChange={handlePhoneChange}
+              onChange={(phone) => {
+                setFormData((prev) => ({ ...prev, phone: phone }))
+              }}
+              isValid={(value, country) => validatePhoneNumber(value, country)}
               inputProps={{
                 required: true,
                 className: 'w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md',
