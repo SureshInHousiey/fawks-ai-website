@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { Twitter, Linkedin, MapPin } from 'lucide-react'
+import Link from "next/link";
+import Image from "next/image";
+import { Twitter, Linkedin, Youtube, MapPin } from "lucide-react";
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <footer className="bg-[#0B162C] text-white py-12">
@@ -24,67 +24,127 @@ const Footer = () => {
               height={60} // Ensure width and height are the same for circular effect
               className="h-[100px] w-[100px] rounded-full border-3 border-white shadow-lg shadow-gray-500/50 object-cover mb-2"
             />
-            <p className="text-sm mb-4">The AI voice agent that remembers, personalizes, and transforms customer interactions into loyalty and growt.</p>
+            <p className="text-sm mb-4">
+              The AI voice agent that remembers, personalizes, and transforms
+              customer interactions into loyalty and growth.
+            </p>
             <div className="flex items-start text-sm text-gray-400">
               <MapPin className="w-5 h-5 mr-2 mt-1 text-[#F05A28]" />
-              <p>
-                1220 Vienna Austria
-              </p>
+              <p>Vienna Austria</p>
             </div>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <button onClick={() => scrollToSection('hero')} className="hover:text-[#F05A28] transition-colors">
-                  Home
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection('featured-bots')} className="hover:text-[#F05A28] transition-colors">
-                  Featured Bots
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection('use-cases')} className="hover:text-[#F05A28] transition-colors">
-                  Use Cases
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection('integrations')} className="hover:text-[#F05A28] transition-colors">
-                  Integrations
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection('how-it-works')} className="hover:text-[#F05A28] transition-colors">
-                  How It Works
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection('reviews')} className="hover:text-[#F05A28] transition-colors">
-                  Reviews
-                </button>
-              </li>
-              <li>
-                <Link
-                  href="/customized-demo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#F05A28] transition-colors"
-                >
-                  Customized Demo
-                </Link>
-              </li>
-            </ul>
+            <div className="grid grid-cols-2 gap-4">
+              <ul className="space-y-2">
+                <li>
+                  <button
+                    onClick={() => scrollToSection("hero")}
+                    className="hover:text-[#F05A28] transition-colors"
+                  >
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("featured-bots")}
+                    className="hover:text-[#F05A28] transition-colors"
+                  >
+                    Featured Bots
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("hire-us")}
+                    className="hover:text-[#F05A28] transition-colors"
+                  >
+                    Why Hire Us!
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("use-cases")}
+                    className="hover:text-[#F05A28] transition-colors"
+                  >
+                    Use Cases
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("integrations")}
+                    className="hover:text-[#F05A28] transition-colors"
+                  >
+                    Integrations
+                  </button>
+                </li>
+              </ul>
+              <ul className="space-y-2">
+                <li>
+                  <button
+                    onClick={() => scrollToSection("how-it-works")}
+                    className="hover:text-[#F05A28] transition-colors"
+                  >
+                    How It Works
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("reviews")}
+                    className="hover:text-[#F05A28] transition-colors"
+                  >
+                    Reviews
+                  </button>
+                </li>
+                <li>
+                  <Link
+                    href="/customized-demo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#F05A28] transition-colors"
+                  >
+                    Customized Demo
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("ai-sales-agents")}
+                    className="hover:text-[#F05A28] transition-colors"
+                  >
+                    Meet Our Agents
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("pricing")}
+                    className="hover:text-[#F05A28] transition-colors"
+                  >
+                    Pricing
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
+
           <div>
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
             <div className="flex space-x-4">
-              <a href="https://x.com/fawksai" className="text-white hover:text-[#F05A28] transition-colors">
+              <a
+                href="https://x.com/fawksai"
+                className="text-white hover:text-[#F05A28] transition-colors"
+              >
                 <Twitter />
               </a>
-              <a href="https://www.linkedin.com/company/fawksai/" className="text-white hover:text-[#F05A28] transition-colors">
+              <a
+                href="https://www.linkedin.com/company/fawksai/"
+                className="text-white hover:text-[#F05A28] transition-colors"
+              >
                 <Linkedin />
+              </a>
+              <a
+                href="https://www.youtube.com/@FawksAI"
+                className="text-white hover:text-[#F05A28] transition-colors"
+              >
+                <Youtube />
               </a>
             </div>
           </div>
@@ -94,8 +154,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
-
+export default Footer;

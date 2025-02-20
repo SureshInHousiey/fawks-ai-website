@@ -11,7 +11,7 @@ const ContactUs = () => {
         </AnimatedHeading>
 
         {/* Embed the Calendly widget */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-9">
           <InlineWidget 
             url="https://calendly.com/fawksaivoicecalls/30min" 
             styles={{ height: "600px", width: "100%", maxWidth: "400px" }} 

@@ -50,6 +50,7 @@ const bots = [
   }
 ]
 
+
 const FeaturedBots = () => {
   const [playingAudio, setPlayingAudio] = useState<number | null>(null)
   const audioRefs = useRef<HTMLAudioElement[]>([])
@@ -88,7 +89,7 @@ const FeaturedBots = () => {
     <section className="py-20 bg-[#0B162C]">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-white text-center mb-4">
-          Revolutionize Your Business with FawksAI Voice Agents
+          Watch FawksAI Voice Sales Agents interactions in different industries 
         </h2>
         <p className="text-gray-400 text-center max-w-3xl mx-auto mb-12">
         FawksAI voice agents automate tasks, enhance customer interactions, and boost conversions. From booking appointments to resolving inquiries, our solutions save time, reduce costs, and deliver seamless experiences tailored to your business needs

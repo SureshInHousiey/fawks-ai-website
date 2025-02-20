@@ -6,35 +6,36 @@ import { AnimatedHeading } from "./ui/animated-heading"
 const features = [
   {
     number: "01",
-    title: "Memory-Powered Conversations",
-    description: "Remembers past interactions to deliver context-aware, personalized follow-ups.",
+    title: "Human-Like AI Conversations",
+    description: "Engages leads with lifelike, natural interactions, remembering past conversations for hyper-personalized follow-ups."
   },
   {
     number: "02",
-    title: "Real-Time Insights",
-    description: "Gain instant, data-driven insights to optimize customer interactions and decisions.",
+    title: "AI-Driven Lead Qualification",
+    description: "Instantly evaluates and qualifies leads using behavior, intent, and real-time insights to optimize conversions."
   },
   {
     number: "03",
-    title: "Automated Outreach",
-    description: "Effortlessly scale outreach with AI-powered automation and tailored communication.",
+    title: "Multi-Channel Follow-Up",
+    description: "Seamlessly connects with leads across email, SMS, WhatsApp, and more, ensuring engagement and trust-building."
   },
   {
     number: "04",
-    title: "Enhanced Customer Retention",
-    description: "Proactively retain at-risk customers with predictive AI insights for improved loyalty.",
+    title: "Smart Appointment Scheduling",
+    description: "Automates scheduling, rescheduling, and reminders, reducing no-shows and ensuring maximum prospect attendance."
   },
   {
     number: "05",
-    title: "Navigate Demand Peaks",
-    description: "Seamlessly handle high-volume periods while ensuring consistent, high-quality service.",
+    title: "Lead Reactivation & Revenue Recovery",
+    description: "Re-engages inactive leads and revives lost opportunities, converting them into revenue without manual effort."
   },
   {
     number: "06",
-    title: "Seamless Integration",
-    description: "Integrate effortlessly with your existing systems for a smooth transition.",
-  },
+    title: "Seamless CRM & Tool Integration",
+    description: "Syncs effortlessly with your CRM, email, and sales tools for automated workflows and real-time data updates."
+  }
 ]
+
 
 const FeaturesHighlight = () => {
   return (
@@ -42,7 +43,7 @@ const FeaturesHighlight = () => {
       <div className="container mx-auto px-4">
         <AnimatedHeading className="text-[#0B162C] dark:text-white">
           <span className="bg-gradient-to-r from-[#F05A28] to-[#0B162C] dark:to-white bg-clip-text text-transparent">
-            Supercharged Features
+            AI Sales Agents: The Ultimate Growth Engine
           </span>
         </AnimatedHeading>
 

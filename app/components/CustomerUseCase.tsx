@@ -47,7 +47,7 @@ const useCases = [
       'Churn prediction and prevention',
       'Customer engagement optimization'
     ],
-    image: '/images/testimonials/collectionRetention.webp',
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984',
     icons: [
       { icon: Clock, label: 'Timely' },
       { icon: Users, label: 'Retention' },

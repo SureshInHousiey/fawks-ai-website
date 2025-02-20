@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Remove scrollbar from the whole application */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
 /* Phone input container styles */
 .phone-input-container .react-tel-input .form-control {
   @apply w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
@@ -15,11 +25,13 @@
   width: 42px !important;
   padding: 0 0 0 8px !important;
   border-radius: 6px 0 0 6px !important;
+  @apply bg-transparent;
 }
 
 .phone-input-container .react-tel-input .flag-dropdown {
   border: none !important;
   background-color: transparent !important;
+  @apply border-r-0 bg-transparent;
 }
 
 /* Hide country codes everywhere */
@@ -38,6 +50,7 @@
 
 .phone-input-container .react-tel-input .country-list .country:hover {
   background-color: #f3f4f6 !important;
+  @apply bg-accent;
 }
 
 .phone-input-container .react-tel-input .country-list .country .country-name {
@@ -50,6 +63,7 @@
   margin-top: 4px;
   background: #fff !important;
   border: 1px solid #e2e8f0 !important;
+  @apply bg-background border border-input text-foreground;
 }
 
 /* Search box styling */
@@ -68,6 +82,7 @@
   @apply bg-gray-800 border-gray-600;
   background: #1f2937 !important;
   border: 1px solid #374151 !important;
+  @apply bg-gray-800 border-gray-600 text-white;
 }
 
 .dark .phone-input-container .react-tel-input .country-list .country {
@@ -92,4 +107,3 @@
 .dark [data-radix-popper-content-wrapper] {
   background: #1f2937 !important;
 }
-

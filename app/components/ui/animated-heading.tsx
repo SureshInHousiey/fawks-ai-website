@@ -10,7 +10,7 @@ interface AnimatedHeadingProps {
 
 export function AnimatedHeading({ children, className = '', subtitle }: AnimatedHeadingProps) {
   return (
-    <div className="text-center mb-12">
+    <div className="text-center mb-1">
       <h2 className={`text-4xl font-bold relative inline-block transition-colors duration-300 ${className}`}>
         {children}
         <motion.div

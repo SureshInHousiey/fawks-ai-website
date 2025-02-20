@@ -109,7 +109,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Turning conversations into growth with personalised AI voice agents
+            Your AI Sales Team - Turning Every Interaction into an Opportunity
           </motion.h1>
           <motion.p
             className="text-xl mb-8 text-gray-700 dark:text-gray-300 transition-colors duration-300"
@@ -117,7 +117,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Trained on your data to engage smarter and close faster.
+            AI Employees work 24/7 to qualify leads, schedule appointments, and nurture prospects—so your team can focus on closing high-value deals.
           </motion.p>
           <motion.div
             className="space-y-3 mb-8"
@@ -127,11 +127,11 @@ const Hero = () => {
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#F05A28]" />
-              <p className="text-gray-700 dark:text-gray-300">Remembers Past Conversations</p>
+              <p className="text-gray-700 dark:text-gray-300">Human-Like AI Conversations</p>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#F05A28]" />
-              <p className="text-gray-700 dark:text-gray-300">Can be run locally</p>
+              <p className="text-gray-700 dark:text-gray-300">24/7 Lead Nurturing & Follow-Ups</p>
             </div>
           </motion.div>
           <motion.div
