@@ -10,7 +10,9 @@ import "react-phone-input-2/lib/style.css"
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 // const companies = [{ name: "Zimyo", webhookUrl: "https://n8n.fawks.ai/webhook/zimyo-demo" }]
 const companies = [{ name: "Zimyo", webhookUrl: "https://n8n.fawks.ai/webhook/zimyo-demo" },
-                   { name: "Al-Jameel Showroom", webhookUrl: "https://n8n.fawks.ai/webhook/Al-Jameel-Showroom-demo" }]
+  { name: "Al-Jameel Showroom", webhookUrl: "https://n8n.fawks.ai/webhook/Al-Jameel-Showroom-demo" },
+  { name: "Virilitas Labs - German", webhookUrl: "https://n8n.fawks.ai/webhook/verilitas-german" },
+  { name: "Virilitas Labs - French", webhookUrl: "https://n8n.fawks.ai/webhook/verilitas-french" }]
 export default function CustomizedDemo() {
   const [formData, setFormData] = useState({
     name: "",
