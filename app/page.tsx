@@ -42,9 +42,9 @@ export default function Home() {
       <Comparison />
       </section>
       <PerfectFor />
-      <section id="pricing">
+      {/* <section id="pricing">
       <Pricing />
-      </section>
+      </section> */}
       <EarlyReviews />
       <FAQ />
       <section id="contact-us">

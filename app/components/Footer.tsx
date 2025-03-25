@@ -95,7 +95,7 @@ const Footer = () => {
                     Reviews
                   </button>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     href="/customized-demo"
                     target="_blank"
@@ -104,7 +104,7 @@ const Footer = () => {
                   >
                     Customized Demo
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <button
                     onClick={() => scrollToSection("ai-sales-agents")}
@@ -113,14 +113,14 @@ const Footer = () => {
                     Meet Our Agents
                   </button>
                 </li>
-                <li>
+                {/* <li>
                   <button
                     onClick={() => scrollToSection("pricing")}
                     className="hover:text-[#F05A28] transition-colors"
                   >
                     Pricing
                   </button>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
